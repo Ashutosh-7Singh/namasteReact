@@ -37,29 +37,31 @@ const Header = () => {
 
 const RestaurantCard = (props) => {
   const { resData } = props;
-  const restaurant = resData?.restaurants[0];
+  const { cloudinaryImageId, name, cuisines, avgRatingString, costForTwo } =
+    resData?.restaurants[0].info;
+  const { slaString, lastMileTravelString } = resData?.restaurants[0].info.sla;
   return (
     <div className="res-card">
       <img
         className="res-logo"
         src={
           "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/" +
-          restaurant?.info?.cloudinaryImageId
+          cloudinaryImageId
         }
         alt="res-image"
       />
-      <h3>{restaurant.info.name}</h3>
+      <h3>{name}</h3>
       {/* <h4>{resData?.restaurants[0].info?.cloudinaryImageId}</h4> */}
-      <h4>{restaurant.info?.cuisines?.join(",")}</h4>
+      <h4>{cuisines.join(",")}</h4>
       <h4>
-        ★ {restaurant.info?.avgRatingString}
-        {restaurant.info?.sla?.slaString}
-        {restaurant.info?.sla?.lastMileTravelString}{" "}
-        {restaurant.info?.costForTwo}
+        ★ {avgRatingString}
+        {slaString}
+        {lastMileTravelString} {costForTwo}
       </h4>
     </div>
   );
 };
+
 const resObj = {
   "@type":
     "type.googleapis.com/swiggy.presentation.food.v2.FavouriteRestaurantInfoWithStyle",
@@ -1382,8 +1384,8 @@ const Body = () => {
       <div className="search">Search</div>
       <div className="res-container">
         {/* <RestaurantCard resData={{ restaurants: [resObj.restaurants[0]] }} /> */}
-        {resObj.restaurants.map((restaurant, index) => (
-          <RestaurantCard key={index} resData={{ restaurants: [restaurant] }} />
+        {resObj.restaurants.map((restaurant) => (
+          <RestaurantCard key={restaurant.id} resData={{ restaurants: [restaurant] }} />
         ))}
       </div>
       <div></div>
@@ -1415,3 +1417,5 @@ root.render(<AppLayout />);
 // what is config driven UI
 //  see when you are in bengaluru the swiggy show you the food or restaurant available in the that pleace only so the data show according to the place so our website is driven by data that is come form backend and the data came from backend it show the UI
 // in short config driven UI means our ui is driven by data
+
+// this key={index}  indicate that each of these items is unique so alsways make habbit to give key when you use map 
