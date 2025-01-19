@@ -14,7 +14,7 @@ const resObj = {
         cuisines: ["Bakery", "Snacks", "South Indian"],
         veg: true,
         parentId: "132222",
-        avgRatingString: "NEW",
+        avgRatingString: "4.5",
         sla: {
           deliveryTime: 35,
           lastMileTravel: 2.7,
