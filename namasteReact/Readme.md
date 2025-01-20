@@ -29,3 +29,17 @@ but virtual dom is the representaion of the actual dom
 * this whole algoritm called Reconciliation also called React Fiber 
 
 * suppose i have 7 res card and when i click on  button it filer 3 res card and it show the difference 4 actual cards 
+
+
+## EPOSIDE 6
+
+* There are two ways to show data using API 
+1 -> load->API->Render
+2->load->Render Skeletion->API->RENDER 
+
+* we always use 2nd approach in react
+
+# useEffect Hooks
+- what is a hook ->hook is nothing it is just a normal js funcion 
+
+* useEffect called only when the body or component is rendered 
