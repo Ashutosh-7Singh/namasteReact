@@ -22,10 +22,31 @@
   suppose we have 7 card but when i filter i got only 3 card
 
 - so what here virtual dom comes see actual doms are tags like <div></div>
-but virtual dom is the representaion of the actual dom
+  but virtual dom is the representaion of the actual dom
 - Diff Algorith
-* it means diffrece betwenn the actual dom and the virtual dom or we can say that old virtual dom and the new veirtual dom  and update the dom 
 
-* this whole algoritm called Reconciliation also called React Fiber 
+* it means diffrece betwenn the actual dom and the virtual dom or we can say that old virtual dom and the new veirtual dom and update the dom
 
-* suppose i have 7 res card and when i click on  button it filer 3 res card and it show the difference 4 actual cards 
+* this whole algoritm called Reconciliation also called React Fiber
+
+* suppose i have 7 res card and when i click on button it filer 3 res card and it show the difference 4 actual cards
+
+## EPOSIDE 6
+
+- There are two ways to show data using API
+  1 -> load->API->Render
+  2->load->Render Skeletion->API->RENDER
+
+- we always use 2nd approach in react
+
+# useEffect Hooks
+
+- what is a hook ->hook is nothing it is just a normal js funcion
+
+* useEffect called only when the body or component is rendered
+
+# when we have normal varibale then why do we needs state variables
+
+# When ever state variable update react triggers a reconciliation syscle (re-render the component)
+
+# why react is faster -> the react-fiber also called reconciliation algorithm which find the differece between two virtual dom the old and new and   updates the only the portion where it is required that is why react is fast 
