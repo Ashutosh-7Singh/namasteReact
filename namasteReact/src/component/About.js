@@ -4,3 +4,4 @@ const About =()=>{
         <h2>This is namaste React Web series</h2>
     </div>
 }
+export default About;
