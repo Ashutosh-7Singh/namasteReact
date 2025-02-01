@@ -2,40 +2,66 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./component/Header";
 import Body from "./component/Body";
-import { createBrowserRouter, Router, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import About from "./component/About";
+import Contact from "./component/Contact";
+import Error from "./component/Error";
+import RestaurantMenu from "./component/RestaurantMenu";
 
+// AppLayout is the main layout of the application
+// It includes the Header component and the Body component.
 const AppLayout = () => {
   return (
     <div className="app">
       <Header />
-      <Body />
+      {/* {if path = /} */}
+      <Outlet />
+      {/* {if path = /about } */}
     </div>
   );
 };
+
+// Config-driven UI explained:
+// For example, in Bengaluru, Swiggy shows restaurants and food options available in that place.
+// The data is fetched from the backend, and the UI is updated accordingly.
+// Config-driven UI means our UI is driven by data.
 
 const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-  },
-  {
-    paht: "/about",
-    element: <About />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/restaurants/:resId",
+        element: <RestaurantMenu />,
+      },
+    ],
+    errorElement: <Error />,
   },
 ]);
 
+// A component is just a JavaScript function that returns some JSX.
+// Props (short for properties) are passed to components just like arguments are passed to JavaScript functions.
+// For example, when a function in React takes arguments (passed as props), they are usually passed as an object.
+// This makes React components reusable and dynamic.
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
+// Render the application using RouterProvider to manage routing
 root.render(<RouterProvider router={appRouter} />);
 
-// A component is  just a javascript function which return some JSX
-// props a short form of properties and we pass it to the different diffrent component , just like  functional components  it just a normal javaScript function and similarly  the props are just a normal arguments
-// so passing a argument to a fucntion means passing a props to a functoin
-// When a function in React takes arguments and those arguments are passed as props, they are usually passed as an object.
-
-// what is config driven UI
-//  see when you are in bengaluru the swiggy show you the food or restaurant available in the that pleace only so the data show according to the place so our website is driven by data that is come form backend and the data came from backend it show the UI
-// in short config driven UI means our ui is driven by data
-
-// this key={index}  indicate that each of these items is unique so alsways make habbit to give key when you use map
+// When using map to render a list of components, always use the `key` prop to provide a unique identifier for each item.
+// For example: items.map((item) => <div key={item.id}>{item.name}</div>)
+// The key helps React efficiently update and render items in the DOM.
