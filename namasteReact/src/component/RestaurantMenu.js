@@ -15,29 +15,35 @@ const RestaurntMenu = () => {
       "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.96340&lng=77.58550&restaurantId=393840&catalog_qa=undefined&submitAction=ENTER"
     );
     const json = await data.json();
-    console.log(json);
     setResInfo(json.data);
 
   };
 
-console.log("itemsCard",resInfo?.cards[4]?.groupedCard?.cardGroupMap.REGULAR?.cards[1]?.card?.card?.itemCards);
+if (resInfo === null) return <Shimmer />;
+
+// console.log("itemsCard",
+//   resInfo?.cards[4]?.groupedCard?.cardGroupMap.REGULAR?.cards[1]?.card?.card?.itemCards|| []);
+
+  const itemCards =
+  resInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[1]?.card?.card?.itemCards ;
+
+console.log("itemsCard",itemCards);
 
 
-  // Use optional chaining to avoid crashes
-  const { name, cuisines,costForTwoMessage,city,avgRating } = resInfo?.cards?.[2]?.card?.card?.info || {};
+const { name, cuisines,costForTwoMessage,city,avgRating } = resInfo?.cards?.[2]?.card?.card?.info || {};
 
-
-
-   // Prevent error if resInfo is still null
-   if (resInfo === null) return <Shimmer />;
-
+if(itemCards.length === 0){
+  return <h2>Loading menu items ...........</h2>
+}
   return (
     <div className="menu">
       <h1>{name}</h1>
-      <h3>{cuisines.join(",")}-{costForTwoMessage}</h3>
+      <h3>{cuisines?.join(",")}-{costForTwoMessage}</h3>
       <h3>{avgRating}-{city}</h3>
       <ul>
-        <li>Biryani</li>
+
+        {itemCards.map(item =><li key={item?.card?.info?.id}>{item?.card?.info?.name}-{"Rs"} {item.card.info.defaultPrice/100 || item.card.info.price/100}</li>)}
+        {/* <li>{itemCards[0]?.card?.info?.name}</li> */}
         <li>Burger</li>
         <li>Diet Coke</li>
         <li>Diet Coke</li>
