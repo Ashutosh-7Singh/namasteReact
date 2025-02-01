@@ -24,7 +24,7 @@ console.log("itemsCard",resInfo?.cards[4]?.groupedCard?.cardGroupMap.REGULAR?.ca
 
 
   // Use optional chaining to avoid crashes
-  const { name, cuisines,costForTwoMessage, city,avgRating } = resInfo?.cards?.[2]?.card?.card?.info || {};
+  const { name, cuisines,costForTwoMessage,city,avgRating } = resInfo?.cards?.[2]?.card?.card?.info || {};
 
 
 
