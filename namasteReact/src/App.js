@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./component/Header";
 import Body from "./component/Body";
@@ -7,9 +7,15 @@ import About from "./component/About";
 import Contact from "./component/Contact";
 import Error from "./component/Error";
 import RestaurantMenu from "./component/RestaurantMenu";
+// import Grocery from "./component/Grocery";
 
-// AppLayout is the main layout of the application
-// It includes the Header component and the Body component.
+// chunking
+// lazyloading
+// bundeling
+// lazy loading
+
+const Grocery = lazy(() => import("./component/Grocery"));
+
 const AppLayout = () => {
   return (
     <div className="app">
@@ -20,6 +26,7 @@ const AppLayout = () => {
     </div>
   );
 };
+``;
 
 // Config-driven UI explained:
 // For example, in Bengaluru, Swiggy shows restaurants and food options available in that place.
@@ -42,6 +49,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<h1>Loading........</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
       },
       {
         path: "/restaurants/:resId",

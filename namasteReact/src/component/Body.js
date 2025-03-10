@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 // import resObj from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStaus from "../utils/useOnlineStatus";
 
 const Body = () => {
   // State Variable
@@ -28,6 +29,12 @@ const Body = () => {
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  const onlineStatus = useOnlineStaus();
+  if(onlineStatus === false )
+    return (
+  <h1>Looks like you're offline!! please check your internet connection</h1>)
+
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
