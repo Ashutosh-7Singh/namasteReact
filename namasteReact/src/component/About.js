@@ -1,5 +1,6 @@
 import { Component } from "react";
 import UserClass from "./UserClass";
+import UserContext from "../utils/UserContext";
 
 class About extends Component {
   constructor(props) {
@@ -27,6 +28,11 @@ this.setState(
     return (
       <div>
         <h1>name:{name}</h1>
+        <div>
+          loggedIn User:<UserContext.Consumer>
+            {({loggedInUser})=><h1 className="text-2xl font-bold">{loggedInUser}</h1>}
+          </UserContext.Consumer>
+        </div>
         <h2>location:{location}</h2>
         <img src={avatar_url}/>
         <UserClass name={"First"} location={"Muzaffarpur class"} />
