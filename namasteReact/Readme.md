@@ -113,3 +113,17 @@ There are two common approaches to fetching and displaying data:
 
 - Server-side routing requires a full page reload. When you click on a link, the browser makes a network request to fetch a new HTML page (e.g., `aboutUs.html`) from the server and reloads the entire page with new content. 
 - This is the traditional routing method used in classic multi-page applications. -->
+
+
+
+
+
+# REDUX Toolkit
+
+- Install @redux/toolkit and react-redux
+- Build our store 
+- Connect our store to our app
+- Sclice (Create cartSlice to add)
+- Dispatch(action)- it call function(reducer)
+- Selector(suscribed)-Cart is suscribed through selectr so the forntend cart get updated
+

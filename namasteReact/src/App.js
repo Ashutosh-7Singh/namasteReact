@@ -8,6 +8,9 @@ import Contact from "./component/Contact";
 import Error from "./component/Error";
 import RestaurantMenu from "./component/RestaurantMenu";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./component/Cart";
 // import Grocery from "./component/Grocery";
 
 // chunking
@@ -18,25 +21,27 @@ import UserContext from "./utils/UserContext";
 const Grocery = lazy(() => import("./component/Grocery"));
 
 const AppLayout = () => {
-  const [userName,setUserName]=useState();
-  useEffect(()=>{
+  const [userName, setUserName] = useState();
+  useEffect(() => {
     const data = {
-      name :"Ashutosh Singh",
-    }
-    setUserName(data.name)
-  },[])
+      name: "Ashutosh Singh",
+    };
+    setUserName(data.name);
+  }, []);
   return (
-    <UserContext.Provider value={{loggedInUser:userName,setUserName}}>
-    <div className="app">
-      <Header />
-      {/* {if path = /} */}
-      <Outlet />
-      {/* {if path = /about } */}
-    </div>
+    <Provider store={appStore}>
+  <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+      <div className="app">
+        <Header />
+        {/* {if path = /} */}
+        <Outlet />
+        {/* {if path = /about } */}
+      </div>
     </UserContext.Provider>
+    </Provider>
+  
   );
 };
-``;
 
 // Config-driven UI explained:
 // For example, in Bengaluru, Swiggy shows restaurants and food options available in that place.
@@ -71,6 +76,9 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
+      },{
+        path: "/cart",
+        element: <Cart/>,
       },
     ],
     errorElement: <Error />,
