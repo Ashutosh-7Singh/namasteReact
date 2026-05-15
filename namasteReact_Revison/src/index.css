@@ -1,0 +1,302 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    align-items: center;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    height: 100px;
+    width: 100px ;
+}
+.nav-items>ul{
+    margin-right: 10px;
+    display: flex;
+    list-style-type: none;
+    cursor: pointer;
+    justify-content: center;
+}
+.nav-items>ul>li{
+   display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    margin: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    height: 36px;
+    border: 1px solid #d3d3d3;
+    transition: background-color 0.2s;
+}
+.res-container{
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+
+/* index.css */
+
+.res-card {
+    padding: 10px;
+    margin: 10px;
+    width: 250px;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    
+    /* ADD THIS LINE: It reserves space for the border so nothing shakes */
+    border: 1px solid transparent; 
+}
+.res-logo {
+    width: 100%;
+    height: 160px;
+    border-radius: 12px; /* Match card corners */
+    object-fit: cover;
+}
+.res-card:hover {
+    transform: scale(0.96); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    
+    /* CHANGE THIS LINE: Only the color changes now, not the size */
+    border: 1px solid rgba(0, 0, 0, 0.1); 
+}
+
+.filter-search {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.filter-btn, .search-btn , .clear-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    margin: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    height: 36px;
+    border: 1px solid #d3d3d3;
+    transition: background-color 0.2s;
+}
+
+.filter-btn:hover, .search-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.filter-btn {
+    width: auto;
+    min-width: 180px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search-box {
+    height: 36px;
+    padding: 5px 10px;
+    margin: 5px;
+    border: 1px solid #d3d3d3;
+    border-radius: 8px;
+    outline: none;
+}
+
+.search-box:focus {
+    border-color: #999;
+}
+.login-btn{
+    border-radius: 10px;
+    width: 90px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+
+/* .res-card{
+    padding: 10px;
+    margin: 10px;
+    width: 250px;
+    height: auto;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.res-logo{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+} */
+/* .res-card:hover{
+    cursor: pointer;
+    background-color: #b7b7b7;
+   
+} */
+.word-break{
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* index.css */
+
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: 20px;
+    justify-content: start;
+}
+
+.shimmer-card {
+    width: 250px;
+    height: 380px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.shimmer-img {
+    width: 100%;
+    height: 180px;
+    border-radius: 12px;
+    background: #f0f0f0;
+}
+
+.shimmer-title {
+    width: 80%;
+    height: 24px;
+    background: #f0f0f0;
+    border-radius: 4px;
+}
+
+.shimmer-text {
+    width: 60%;
+    height: 18px;
+    background: #f0f0f0;
+    border-radius: 4px;
+}
+
+/* The Animated Shine Effect */
+.shimmer-img, .shimmer-title, .shimmer-text {
+    position: relative;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.shimmer-img::after, .shimmer-title::after, .shimmer-text::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+.form-container {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+
+.main-layout {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.form-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.form-box input, .form-box textarea {
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+.form-box label {
+    font-weight: bold;
+    margin-bottom: -5px;
+}
+
+.table-box {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid gray;
+    padding: 8px;
+    text-align: left;
+} */
