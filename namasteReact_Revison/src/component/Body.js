@@ -18,6 +18,7 @@ const Body = () => {
         setListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
+    
     return listOfRestaurant?.length === 0 ? <Shimmer /> : (
         <div className="body">
             <div className="filter-search">
